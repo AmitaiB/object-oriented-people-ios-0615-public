@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38249B6A1B2590A200B6FAF2 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 38249B691B2590A200B6FAF2 /* Person.m */; };
 		4402C90D1941FBCC004F1ADE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4402C90C1941FBCC004F1ADE /* Foundation.framework */; };
 		4402C90F1941FBCC004F1ADE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4402C90E1941FBCC004F1ADE /* CoreGraphics.framework */; };
 		4402C9111941FBCC004F1ADE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4402C9101941FBCC004F1ADE /* UIKit.framework */; };
@@ -33,6 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		38249B681B2590A200B6FAF2 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		38249B691B2590A200B6FAF2 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		4402C9091941FBCC004F1ADE /* ObjectOrientedPeople.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObjectOrientedPeople.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4402C90C1941FBCC004F1ADE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4402C90E1941FBCC004F1ADE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -115,6 +118,8 @@
 			children = (
 				4402C91B1941FBCC004F1ADE /* AppDelegate.h */,
 				4402C91C1941FBCC004F1ADE /* AppDelegate.m */,
+				38249B681B2590A200B6FAF2 /* Person.h */,
+				38249B691B2590A200B6FAF2 /* Person.m */,
 				4402C91E1941FBCC004F1ADE /* Images.xcassets */,
 				4402C9131941FBCC004F1ADE /* Supporting Files */,
 			);
@@ -280,6 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38249B6A1B2590A200B6FAF2 /* Person.m in Sources */,
 				4402C91D1941FBCC004F1ADE /* AppDelegate.m in Sources */,
 				4402C9191941FBCC004F1ADE /* main.m in Sources */,
 			);
