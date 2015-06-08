@@ -69,14 +69,33 @@
     return partyList;
 }
 
--(BOOL)removeFriend:(Person *)aFriend {
-    BOOL isFriendOnList = [self.friends containsObject:aFriend];
-    if (isFriendOnList) {
-        [self.friends removeObject:aFriend];
+-(BOOL)removeFriend:(Person *)erstwhileFriend {
+    if (![self.friends containsObject:erstwhileFriend]) {
+        return NO;
     }
-    return isFriendOnList;
+//    if ([self.friends containsObject:erstwhileFriend]) {
+        [self.friends removeObject:erstwhileFriend];
+        return YES;
+//    }
 }
 
+
+// Failed Method #2
+//    BOOL isFriendOnList = NO;
+//    for (Person *friend in self.friends) {
+//        if (friend == erstwhileFriend) {
+//            isFriendOnList = YES;
+//            [self.friends removeObject:erstwhileFriend];
+//        }
+//    }
+//   Failed Method #1
+//    [self.friends containsObject:aFriend];
+//    if (isFriendOnList) {
+//        [self.friends removeObject:aFriend];
+//    }
+//    return isFriendOnList;
+//}
+/*
 -(NSArray *)removeFriends:(NSArray *)friends {
     NSMutableArray *friendsToRemoveWhoExistInDB = [[NSMutableArray alloc] init];
     for (NSString *erstwhileFriend in self.friends) {
@@ -86,8 +105,6 @@
         }
     }
     return friendsToRemoveWhoExistInDB;
-}
-
-
+}*/
 
 @end
