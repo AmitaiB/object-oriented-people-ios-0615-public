@@ -11,6 +11,25 @@
 
 @implementation Person
 
+-(instancetype)init {
+    self = [super init];
+    
+    if (self) {
+        _friends = [[NSMutableArray alloc] init];
+    }
+    
+    
+    return self;
+}
+
+-(instancetype)initWithName:(NSString *)name {
+    self = [super init];
+    if(self) {
+        _name = name;
+    }
+    return self;
+}
+
 -(NSNumber *)grow {
     NSUInteger ageInt = [self.age intValue];
     CGFloat growth = 0;

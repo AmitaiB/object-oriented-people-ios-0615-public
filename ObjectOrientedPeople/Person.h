@@ -16,6 +16,9 @@
 @property BOOL isFemale;
 @property NSMutableArray *friends;
 
+-(instancetype)init;
+-(instancetype)initWithName:(NSString*)name;
+
 -(NSNumber *)grow;
 
 -(CGFloat)randomFloatBetweenNumber:(CGFloat)minRange andNumber:(CGFloat)maxRange;
