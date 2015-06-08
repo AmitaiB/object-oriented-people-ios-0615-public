@@ -62,8 +62,8 @@
 -(NSString *)generatePartyList {
     NSMutableArray *friendsToInviteList = [[NSMutableArray alloc] init];
     
-    for (NSString *friend in self.friends) {
-        [friendsToInviteList addObject:friend];
+    for (Person *friend in self.friends) {
+        [friendsToInviteList addObject:friend.name];
     }
     NSString *partyList = [NSString stringWithString:[friendsToInviteList componentsJoinedByString:@", "]];
     return partyList;
