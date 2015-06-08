@@ -107,4 +107,24 @@
     return friendsToRemoveWhoExistInDB;
 }*/
 
+-(NSArray *)removeFriends:(NSArray *)frenemies {
+    NSMutableArray *ShipList = [[NSMutableArray alloc] init];
+    for (Person *frenemy in frenemies) {
+        if ([self.friends containsObject:frenemy]) {
+            [ShipList addObject:frenemy];
+            [self.friends removeObject:frenemy];
+        }
+    }
+    return ShipList;
+}
+//
+//            [self.friends containsObject:frenemies[]]) {
+//            [self.friends removeObject:erstwhileFriend];
+//        
+//    }
+//   
+//    //    }
+//}
+
+
 @end
