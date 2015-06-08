@@ -55,16 +55,20 @@
     return [NSNumber numberWithFloat:self.height];
 }
 
-
 -(void)addFriends:(NSArray *)friends {
     [self.friends addObjectsFromArray:friends];
 }
 
 -(NSString *)generatePartyList {
     NSMutableString *partyList = [[NSMutableString alloc] init];
-    self.friends enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        [partyList appendFormat:@"%@, ", obj];
-    }
+    for (NSInteger i = 0; i < [self.friends count]; i++) {
+                                      [partyList appendString:(NSString *)self.friends[i]];
+                                      [partyList appendString:@", "];
+                                  }
+    NSLog(@"%@", [partyList copy]);
+//                                         enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+//        [partyList appendFormat:@"%@, ", obj];
+//                                         };
     return [partyList copy];
 }
 
