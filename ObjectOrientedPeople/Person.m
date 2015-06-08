@@ -60,16 +60,13 @@
 }
 
 -(NSString *)generatePartyList {
-    NSMutableString *partyList = [[NSMutableString alloc] init];
-    for (NSInteger i = 0; i < [self.friends count]; i++) {
-                                      [partyList appendString:(NSString *)self.friends[i]];
-                                      [partyList appendString:@", "];
-                                  }
-    NSLog(@"%@", [partyList copy]);
-//                                         enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-//        [partyList appendFormat:@"%@, ", obj];
-//                                         };
-    return [partyList copy];
+    NSMutableArray *friendsToInviteList = [[NSMutableArray alloc] init];
+    
+    for (NSString *friend in self.friends) {
+        [friendsToInviteList addObject:friend];
+    }
+    NSString *partyList = [NSString stringWithString:[friendsToInviteList componentsJoinedByString:@", "]];
+    return partyList;
 }
 
 -(BOOL)removeFriend:(Person *)aFriend {
