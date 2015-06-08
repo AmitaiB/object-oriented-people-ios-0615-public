@@ -68,7 +68,7 @@
 }
 
 -(BOOL)removeFriend:(Person *)aFriend {
-    BOOL isFriendOnList = YES;
+    BOOL isFriendOnList = [self.friends containsObject:aFriend];
     if (isFriendOnList) {
         [self.friends removeObject:aFriend];
     }
