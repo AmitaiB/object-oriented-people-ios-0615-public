@@ -33,8 +33,7 @@
 }
 
 -(NSNumber *)grow {
-//    CGFloat _height = 0;
-    
+
     if (self.isFemale) {
         if (self.age < 11) {
             self.height += [self randomFloatBetweenNumber:0 andNumber:1];
@@ -74,39 +73,9 @@
     if (![self.friends containsObject:erstwhileFriend]) {
         return NO;
     }
-//    if ([self.friends containsObject:erstwhileFriend]) {
         [self.friends removeObject:erstwhileFriend];
         return YES;
-//    }
 }
-
-
-// Failed Method #2
-//    BOOL isFriendOnList = NO;
-//    for (Person *friend in self.friends) {
-//        if (friend == erstwhileFriend) {
-//            isFriendOnList = YES;
-//            [self.friends removeObject:erstwhileFriend];
-//        }
-//    }
-//   Failed Method #1
-//    [self.friends containsObject:aFriend];
-//    if (isFriendOnList) {
-//        [self.friends removeObject:aFriend];
-//    }
-//    return isFriendOnList;
-//}
-/*
--(NSArray *)removeFriends:(NSArray *)friends {
-    NSMutableArray *friendsToRemoveWhoExistInDB = [[NSMutableArray alloc] init];
-    for (NSString *erstwhileFriend in self.friends) {
-        if ([self.friends containsObject:erstwhileFriend]) {
-            [friendsToRemoveWhoExistInDB addObject:erstwhileFriend];
-            [self.friends removeObject:erstwhileFriend];
-        }
-    }
-    return friendsToRemoveWhoExistInDB;
-}*/
 
 -(NSArray *)removeFriends:(NSArray *)frenemies {
     NSMutableArray *ShipList = [[NSMutableArray alloc] init];
@@ -118,14 +87,6 @@
     }
     return ShipList;
 }
-//
-//            [self.friends containsObject:frenemies[]]) {
-//            [self.friends removeObject:erstwhileFriend];
-//        
-//    }
-//   
-//    //    }
-//}
 
 
 @end
