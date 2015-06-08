@@ -11,21 +11,18 @@
 
 @implementation Person
 
--(instancetype)init {
+-(instancetype)initWithName:(NSString *)name {
     self = [super init];
-    if (self) {
-        _name = @"";
+    if(self) {
+        _name = name;
         _friends = [[NSMutableArray alloc] init];
         _height = 9;
     }
     return self;
 }
 
--(instancetype)initWithName:(NSString *)name {
-    self = [super init];
-    if(self) {
-        _name = name;
-    }
+-(instancetype)init {
+    self = [self initWithName:@""];
     return self;
 }
 
@@ -64,7 +61,11 @@
 }
 
 -(NSString *)generatePartyList {
-    return [self.friends componentsJoinedByString:@", "];
+    NSMutableString *partyList = [[NSMutableString alloc] init];
+    self.friends enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [partyList appendFormat:@"%@, ", obj];
+    }
+    return [partyList copy];
 }
 
 -(BOOL)removeFriend:(Person *)aFriend {
