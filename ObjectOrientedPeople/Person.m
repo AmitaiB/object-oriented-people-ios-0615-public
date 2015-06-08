@@ -52,6 +52,7 @@
         }
         if (self.age > 16) {}
     }
+    NSLog(@"%@", [NSNumber numberWithFloat:self.height]);
     return [NSNumber numberWithFloat:self.height];
 }
 
