@@ -7,7 +7,7 @@
 //
 
 #import "Person.h"
-
+#define ARC4RANDOM_MAX 0x100000000
 
 @implementation Person
 
@@ -36,22 +36,37 @@
     NSNumber *growthToNumber = [NSNumber numberWithFloat:growth];
     return growthToNumber;
 }
-    
+
 -(CGFloat)randomFloatBetweenNumber:(CGFloat)minRange andNumber:(CGFloat)maxRange
-    {
-        return ((float)arc4random() / ARC4RANDOM_MAX) * (maxRange - minRange) + minRange;
-    }
+{
+    return ((float)arc4random() / ARC4RANDOM_MAX) * (maxRange - minRange) + minRange;
+}
 
 -(void)addFriends:(NSArray *)friends {
     [self.friends addObjectsFromArray:friends];
-    }
+}
 
 -(NSString *)generatePartyList {
-    [self.friends componentsJoinedByString:[@", "]];
+    return [self.friends componentsJoinedByString:@", "];
+}
+
+-(BOOL)removeFriend:(Person *)aFriend {
+    BOOL isFriendOnList = YES;
+    if (isFriendOnList) {
+        [self.friends removeObject:aFriend];
     }
+    return isFriendOnList;
+}
 
--(BOOL)removeFriend:(Person *)friend;
-
--(NSArray *)removeFriends:(NSArray *)friends;
+-(NSArray *)removeFriends:(NSArray *)friends {
+    NSMutableArray *friendsToRemoveWhoExistInDB = [[NSMutableArray alloc] init];
+    for (NSString *erstwhileFriend in self.friends) {
+        if ([self.friends containsObject:erstwhileFriend]) {
+            [friendsToRemoveWhoExistInDB addObject:erstwhileFriend];
+            [self.friends removeObject:erstwhileFriend];
+        }
+    }
+    return friendsToRemoveWhoExistInDB;
+}
 
 @end

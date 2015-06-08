@@ -24,7 +24,7 @@
 
 -(NSString *)generatePartyList;
 
--(BOOL)removeFriend:(Person *)friend;
+-(BOOL)removeFriend:(Person *)aFriend;
 
 -(NSArray *)removeFriends:(NSArray *)friends;
 
