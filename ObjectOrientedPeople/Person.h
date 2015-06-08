@@ -10,25 +10,22 @@
 
 @interface Person : NSObject
 
-@property (strong, nonatomic) NSNumber *height;
-@property (strong, nonatomic) NSNumber *age;
+@property (nonatomic) CGFloat height;
+@property (nonatomic) NSInteger age;
 @property (strong, nonatomic) NSString *name;
-@property BOOL isFemale;
-@property NSMutableArray *friends;
+@property (nonatomic) BOOL isFemale;
+@property (strong, nonatomic) NSMutableArray *friends;
 
 -(instancetype)init;
 -(instancetype)initWithName:(NSString*)name;
 
 -(NSNumber *)grow;
-
 -(CGFloat)randomFloatBetweenNumber:(CGFloat)minRange andNumber:(CGFloat)maxRange;
 
 -(void)addFriends:(NSArray *)friends;
-
 -(NSString *)generatePartyList;
 
 -(BOOL)removeFriend:(Person *)aFriend;
-
 -(NSArray *)removeFriends:(NSArray *)friends;
 
 @end

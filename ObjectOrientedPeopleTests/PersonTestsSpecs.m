@@ -51,17 +51,17 @@ describe(@"Person", ^{
         
         beforeEach(^{
             
-            joe.height = @60;
+            joe.height = 60;
             joe.name = @"Joe";
             joe.isFemale = NO;
             
-            jessica.height = @32;
+            jessica.height = 32;
             jessica.name = @"Jessica";
             jessica.isFemale = YES;
             
         });
         it(@"should grow a random amount between 0 and 1 inch if person is a girl less than 11 years old ", ^{
-            jessica.age = @10;
+            jessica.age = 10;
             NSNumber *jessicaHeight =[jessica grow];
             
             CGFloat newHeight = [jessicaHeight floatValue];
@@ -72,7 +72,7 @@ describe(@"Person", ^{
         });
         it(@"should grow a random amount between .5 and 2 inches if person is a girl 11 or older and 15 or younger ", ^{
             
-            jessica.age = @11;
+            jessica.age = 11;
             NSNumber *jessicaHeight =[jessica grow];
             
             CGFloat newHeight = [jessicaHeight floatValue];
@@ -81,7 +81,7 @@ describe(@"Person", ^{
         
         });
         it(@"should grow 0 inches if person is a girl older than 15 ", ^{
-            jessica.age = @16;
+            jessica.age = 16;
             NSNumber *jessicaHeight =[jessica grow];
             
             CGFloat newHeight = [jessicaHeight floatValue];
@@ -89,15 +89,15 @@ describe(@"Person", ^{
         });
         
         it(@"should grow a random amount between 0 and 1 inch if person is a boy less than 12 years old", ^{
-            joe.age = @11;
+            joe.age = 11;
             NSNumber *joeHeight = [joe grow];
             
-            CGFloat newHeight = [joe.height floatValue];
+            CGFloat newHeight = joe.height; //[joe.height floatValue];
             expect(newHeight).to.beInTheRangeOf(60, 61);
             
         });
         it(@"should grow a random amount between .5 and 3.5 inches if person is a boy 12 years or older and 16 years or younger", ^{
-            joe.age = @12;
+            joe.age = 12;
             NSNumber *joeHeight = [joe grow];
             
             CGFloat newHeight = [joeHeight floatValue];
@@ -105,7 +105,7 @@ describe(@"Person", ^{
             
         });
         it(@"should grow 0 inches if person is a boy older than 16 ", ^{
-            joe.age = @25;
+            joe.age = 25;
             NSNumber *joeHeight = [joe grow];
             
             CGFloat newHeight = [joeHeight floatValue];

@@ -13,12 +13,11 @@
 
 -(instancetype)init {
     self = [super init];
-    
     if (self) {
+        _name = @"";
         _friends = [[NSMutableArray alloc] init];
+        _height = 9;
     }
-    
-    
     return self;
 }
 
@@ -30,36 +29,35 @@
     return self;
 }
 
+//      arc4random is 0 to it's MAX. divided by it's MAX gives you a percentage. Multiply that by the range, and then add that to the original quantity...
+-(CGFloat)randomFloatBetweenNumber:(CGFloat)minRange andNumber:(CGFloat)maxRange
+{
+    return ((float)arc4random() / ARC4RANDOM_MAX) * (maxRange - minRange); //+ minRange;
+}
+
 -(NSNumber *)grow {
-    NSUInteger ageInt = [self.age intValue];
-    CGFloat growth = 0;
+//    CGFloat _height = 0;
     
     if (self.isFemale) {
-        if (ageInt < 11) {
-            growth = [self randomFloatBetweenNumber:0 andNumber:1];
-        } else if (ageInt <= 15) {
-            growth = [self randomFloatBetweenNumber:0.5 andNumber:2];
-        } else if (ageInt >= 15){}
+        if (self.age < 11) {
+            self.height += [self randomFloatBetweenNumber:0 andNumber:1];
+        } else if (self.age <= 15) {
+            self.height += [self randomFloatBetweenNumber:0.5 andNumber:2];
+        } else if (self.age >= 15){}
     }
     
     if (!self.isFemale)  {
-        if (ageInt < 12) {
-            growth = [self randomFloatBetweenNumber:0 andNumber:1];
+        if (self.age < 12) {
+            self.height += [self randomFloatBetweenNumber:0 andNumber:1];
         }
-        if (ageInt <= 16) {
-            growth = [self randomFloatBetweenNumber:0.5 andNumber:3.5];
+        if (self.age <= 16) {
+            self.height += [self randomFloatBetweenNumber:0.5 andNumber:3.5];
         }
-        if (ageInt > 16) {}
+        if (self.age > 16) {}
     }
-    
-    NSNumber *growthToNumber = [NSNumber numberWithFloat:growth];
-    return growthToNumber;
+    return [NSNumber numberWithFloat:self.height];
 }
 
--(CGFloat)randomFloatBetweenNumber:(CGFloat)minRange andNumber:(CGFloat)maxRange
-{
-    return ((float)arc4random() / ARC4RANDOM_MAX) * (maxRange - minRange) + minRange;
-}
 
 -(void)addFriends:(NSArray *)friends {
     [self.friends addObjectsFromArray:friends];
@@ -87,5 +85,7 @@
     }
     return friendsToRemoveWhoExistInDB;
 }
+
+
 
 @end
