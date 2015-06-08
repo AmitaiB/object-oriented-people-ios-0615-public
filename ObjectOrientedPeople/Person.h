@@ -16,5 +16,16 @@
 @property BOOL isFemale;
 @property NSMutableArray *friends;
 
+-(NSNumber *)grow;
+
+-(CGFloat)randomFloatBetweenNumber:(CGFloat)minRange andNumber:(CGFloat)maxRange;
+
+-(void)addFriends:(NSArray *)friends;
+
+-(NSString *)generatePartyList;
+
+-(BOOL)removeFriend:(Person *)friend;
+
+-(NSArray *)removeFriends:(NSArray *)friends;
 
 @end
