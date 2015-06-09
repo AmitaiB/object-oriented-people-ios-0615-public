@@ -11,19 +11,27 @@
 
 @implementation Person
 
--(instancetype)initWithName:(NSString *)name {
+-(instancetype)initWithName:(NSString *)name
+             isFemaleOrIsnt:(BOOL)femaleOrNot
+                  andHeight:(CGFloat)height
+                     andAge:(CGFloat)age {
     self = [super init];
-    if(self) {
+    if(self){
         _name = name;
-        _friends = [[NSMutableArray alloc] init];
-        _height = 9;
+        _isFemale   = femaleOrNot;
+        _friends    = [[NSMutableArray alloc] init];
+        _height     = height;
+        _age        = age;
     }
     return self;
 }
 
+-(instancetype)initWithName:(NSString *)name {
+    return [self initWithName:name isFemaleOrIsnt:nil andHeight:9 andAge:18];
+}
+
 -(instancetype)init {
-    self = [self initWithName:@""];
-    return self;
+    return [self initWithName:@""];
 }
 
 //      arc4random is 0 to it's MAX. divided by it's MAX gives you a percentage. Multiply that by the range, and then add that to the original quantity...
@@ -42,14 +50,15 @@
         } else if (self.age >= 15){}
     }
     
-    if (!self.isFemale)  {
+    //If a boy...
+    else {
         if (self.age < 12) {
             self.height += [self randomFloatBetweenNumber:0 andNumber:1];
         }
-        if (self.age <= 16) {
+        else if (self.age <= 16) {
             self.height += [self randomFloatBetweenNumber:0.5 andNumber:3.5];
         }
-        if (self.age > 16) {}
+        else if (self.age > 16) {}
     }
     NSLog(@"%@", [NSNumber numberWithFloat:self.height]);
     return [NSNumber numberWithFloat:self.height];
@@ -87,6 +96,5 @@
     }
     return ShipList;
 }
-
 
 @end

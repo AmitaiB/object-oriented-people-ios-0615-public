@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "Person.h"
 
 @implementation AppDelegate
 
@@ -16,6 +17,14 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+
+    Person *testGirl = [[Person alloc] initWithName:@"PAT" isFemaleOrIsnt:NO andHeight:60 andAge:10];
+    NSLog(@"BEFORE:%f", testGirl.height);
+    [testGirl grow];
+    NSLog(@"AFTER:%f", testGirl.height);
+
+    
+    
     return YES;
 }
 

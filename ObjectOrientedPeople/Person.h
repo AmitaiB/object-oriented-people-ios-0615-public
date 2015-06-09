@@ -18,6 +18,10 @@
 
 -(instancetype)init;
 -(instancetype)initWithName:(NSString*)name;
+-(instancetype)initWithName:(NSString *)name
+             isFemaleOrIsnt:(BOOL)femaleOrNot
+                  andHeight:(CGFloat)height
+                     andAge:(CGFloat)age;
 
 -(NSNumber *)grow;
 -(CGFloat)randomFloatBetweenNumber:(CGFloat)minRange andNumber:(CGFloat)maxRange;
